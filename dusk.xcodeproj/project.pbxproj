@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		CC743E8F22607D6C00B6A895 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743E8E22607D6C00B6A895 /* main.c */; };
+		CC743EB9226081F300B6A895 /* exptree.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743E97226081EF00B6A895 /* exptree.c */; };
+		CC743EBA226081F300B6A895 /* nextch.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743E9B226081EF00B6A895 /* nextch.c */; };
+		CC743EBB226081F300B6A895 /* strliteral.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743E9C226081EF00B6A895 /* strliteral.c */; };
+		CC743EBC226081F300B6A895 /* idtable.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743E9D226081EF00B6A895 /* idtable.c */; };
+		CC743EBD226081F300B6A895 /* expression.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743E9F226081EF00B6A895 /* expression.c */; };
+		CC743EBE226081F300B6A895 /* identifiers.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EA0226081EF00B6A895 /* identifiers.c */; };
+		CC743EBF226081F300B6A895 /* execute.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EA1226081EF00B6A895 /* execute.c */; };
+		CC743EC0226081F300B6A895 /* errmessages.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EA2226081EF00B6A895 /* errmessages.c */; };
+		CC743EC1226081F300B6A895 /* symset.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EA5226081F000B6A895 /* symset.c */; };
+		CC743EC2226081F300B6A895 /* statements.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EA7226081F000B6A895 /* statements.c */; };
+		CC743EC3226081F300B6A895 /* functions.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EAB226081F000B6A895 /* functions.c */; };
+		CC743EC4226081F300B6A895 /* abort.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EAC226081F100B6A895 /* abort.c */; };
+		CC743EC5226081F300B6A895 /* getitem.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EB1226081F100B6A895 /* getitem.c */; };
+		CC743EC6226081F300B6A895 /* printitem.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EB2226081F100B6A895 /* printitem.c */; };
+		CC743EC7226081F300B6A895 /* newnode.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EB3226081F100B6A895 /* newnode.c */; };
+		CC743EC8226081F300B6A895 /* getsymbol.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EB5226081F200B6A895 /* getsymbol.c */; };
+		CC743EC9226081F300B6A895 /* simplestat.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EB6226081F200B6A895 /* simplestat.c */; };
+		CC743ECA226081F300B6A895 /* evaluate.c in Sources */ = {isa = PBXBuildFile; fileRef = CC743EB7226081F200B6A895 /* evaluate.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +43,42 @@
 /* Begin PBXFileReference section */
 		CC743E8B22607D6C00B6A895 /* dusk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dusk; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC743E8E22607D6C00B6A895 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		CC743E95226081EF00B6A895 /* execute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = execute.h; sourceTree = "<group>"; };
+		CC743E96226081EF00B6A895 /* identifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = identifiers.h; sourceTree = "<group>"; };
+		CC743E97226081EF00B6A895 /* exptree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = exptree.c; sourceTree = "<group>"; };
+		CC743E98226081EF00B6A895 /* strliteral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strliteral.h; sourceTree = "<group>"; };
+		CC743E99226081EF00B6A895 /* commontype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commontype.h; sourceTree = "<group>"; };
+		CC743E9A226081EF00B6A895 /* statements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statements.h; sourceTree = "<group>"; };
+		CC743E9B226081EF00B6A895 /* nextch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nextch.c; sourceTree = "<group>"; };
+		CC743E9C226081EF00B6A895 /* strliteral.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = strliteral.c; sourceTree = "<group>"; };
+		CC743E9D226081EF00B6A895 /* idtable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = idtable.c; sourceTree = "<group>"; };
+		CC743E9E226081EF00B6A895 /* getitem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getitem.h; sourceTree = "<group>"; };
+		CC743E9F226081EF00B6A895 /* expression.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = expression.c; sourceTree = "<group>"; };
+		CC743EA0226081EF00B6A895 /* identifiers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = identifiers.c; sourceTree = "<group>"; };
+		CC743EA1226081EF00B6A895 /* execute.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = execute.c; sourceTree = "<group>"; };
+		CC743EA2226081EF00B6A895 /* errmessages.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = errmessages.c; sourceTree = "<group>"; };
+		CC743EA3226081F000B6A895 /* token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = token.h; sourceTree = "<group>"; };
+		CC743EA4226081F000B6A895 /* idtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idtable.h; sourceTree = "<group>"; };
+		CC743EA5226081F000B6A895 /* symset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = symset.c; sourceTree = "<group>"; };
+		CC743EA6226081F000B6A895 /* symset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symset.h; sourceTree = "<group>"; };
+		CC743EA7226081F000B6A895 /* statements.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = statements.c; sourceTree = "<group>"; };
+		CC743EA8226081F000B6A895 /* evaluate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evaluate.h; sourceTree = "<group>"; };
+		CC743EA9226081F000B6A895 /* abort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = abort.h; sourceTree = "<group>"; };
+		CC743EAA226081F000B6A895 /* stnode_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stnode_imp.h; sourceTree = "<group>"; };
+		CC743EAB226081F000B6A895 /* functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = functions.c; sourceTree = "<group>"; };
+		CC743EAC226081F100B6A895 /* abort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = abort.c; sourceTree = "<group>"; };
+		CC743EAD226081F100B6A895 /* expression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = expression.h; sourceTree = "<group>"; };
+		CC743EAE226081F100B6A895 /* nextch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nextch.h; sourceTree = "<group>"; };
+		CC743EAF226081F100B6A895 /* getsymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getsymbol.h; sourceTree = "<group>"; };
+		CC743EB0226081F100B6A895 /* exp_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exp_imp.h; sourceTree = "<group>"; };
+		CC743EB1226081F100B6A895 /* getitem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getitem.c; sourceTree = "<group>"; };
+		CC743EB2226081F100B6A895 /* printitem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = printitem.c; sourceTree = "<group>"; };
+		CC743EB3226081F100B6A895 /* newnode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = newnode.c; sourceTree = "<group>"; };
+		CC743EB4226081F200B6A895 /* expnode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = expnode.h; sourceTree = "<group>"; };
+		CC743EB5226081F200B6A895 /* getsymbol.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getsymbol.c; sourceTree = "<group>"; };
+		CC743EB6226081F200B6A895 /* simplestat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = simplestat.c; sourceTree = "<group>"; };
+		CC743EB7226081F200B6A895 /* evaluate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = evaluate.c; sourceTree = "<group>"; };
+		CC743EB8226081F200B6A895 /* stnode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stnode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +112,42 @@
 			isa = PBXGroup;
 			children = (
 				CC743E8E22607D6C00B6A895 /* main.c */,
+				CC743EAC226081F100B6A895 /* abort.c */,
+				CC743EA9226081F000B6A895 /* abort.h */,
+				CC743E99226081EF00B6A895 /* commontype.h */,
+				CC743EA2226081EF00B6A895 /* errmessages.c */,
+				CC743EB7226081F200B6A895 /* evaluate.c */,
+				CC743EA8226081F000B6A895 /* evaluate.h */,
+				CC743EA1226081EF00B6A895 /* execute.c */,
+				CC743E95226081EF00B6A895 /* execute.h */,
+				CC743EB0226081F100B6A895 /* exp_imp.h */,
+				CC743EB4226081F200B6A895 /* expnode.h */,
+				CC743E9F226081EF00B6A895 /* expression.c */,
+				CC743EAD226081F100B6A895 /* expression.h */,
+				CC743E97226081EF00B6A895 /* exptree.c */,
+				CC743EAB226081F000B6A895 /* functions.c */,
+				CC743EB1226081F100B6A895 /* getitem.c */,
+				CC743E9E226081EF00B6A895 /* getitem.h */,
+				CC743EB5226081F200B6A895 /* getsymbol.c */,
+				CC743EAF226081F100B6A895 /* getsymbol.h */,
+				CC743EA0226081EF00B6A895 /* identifiers.c */,
+				CC743E96226081EF00B6A895 /* identifiers.h */,
+				CC743E9D226081EF00B6A895 /* idtable.c */,
+				CC743EA4226081F000B6A895 /* idtable.h */,
+				CC743EB3226081F100B6A895 /* newnode.c */,
+				CC743E9B226081EF00B6A895 /* nextch.c */,
+				CC743EAE226081F100B6A895 /* nextch.h */,
+				CC743EB2226081F100B6A895 /* printitem.c */,
+				CC743EB6226081F200B6A895 /* simplestat.c */,
+				CC743EA7226081F000B6A895 /* statements.c */,
+				CC743E9A226081EF00B6A895 /* statements.h */,
+				CC743EAA226081F000B6A895 /* stnode_imp.h */,
+				CC743EB8226081F200B6A895 /* stnode.h */,
+				CC743E9C226081EF00B6A895 /* strliteral.c */,
+				CC743E98226081EF00B6A895 /* strliteral.h */,
+				CC743EA5226081F000B6A895 /* symset.c */,
+				CC743EA6226081F000B6A895 /* symset.h */,
+				CC743EA3226081F000B6A895 /* token.h */,
 			);
 			path = dusk;
 			sourceTree = "<group>";
@@ -118,7 +208,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC743EC4226081F300B6A895 /* abort.c in Sources */,
+				CC743EBC226081F300B6A895 /* idtable.c in Sources */,
+				CC743EC3226081F300B6A895 /* functions.c in Sources */,
+				CC743EBA226081F300B6A895 /* nextch.c in Sources */,
+				CC743EC6226081F300B6A895 /* printitem.c in Sources */,
+				CC743EBE226081F300B6A895 /* identifiers.c in Sources */,
 				CC743E8F22607D6C00B6A895 /* main.c in Sources */,
+				CC743EC8226081F300B6A895 /* getsymbol.c in Sources */,
+				CC743ECA226081F300B6A895 /* evaluate.c in Sources */,
+				CC743EC1226081F300B6A895 /* symset.c in Sources */,
+				CC743EB9226081F300B6A895 /* exptree.c in Sources */,
+				CC743EBF226081F300B6A895 /* execute.c in Sources */,
+				CC743EC7226081F300B6A895 /* newnode.c in Sources */,
+				CC743EBB226081F300B6A895 /* strliteral.c in Sources */,
+				CC743EC0226081F300B6A895 /* errmessages.c in Sources */,
+				CC743EBD226081F300B6A895 /* expression.c in Sources */,
+				CC743EC2226081F300B6A895 /* statements.c in Sources */,
+				CC743EC5226081F300B6A895 /* getitem.c in Sources */,
+				CC743EC9226081F300B6A895 /* simplestat.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
