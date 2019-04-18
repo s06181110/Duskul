@@ -64,13 +64,13 @@ item fgetItem(TIN *tip, bool current_only) {
     do {
         ch = nextch(tip);
         attr = chAttribute(ch);
-    }while (attr == ca_blank);
+    }while (attr == ca_blank); // 空白ではない文字まで読み込む
     switch (attr) {
         case ca_sym:
-            return getsymbol(ch, tip);
+            return getsymbol(ch, tip); //シンボルなのでシンボルをゲットして返す
         case ca_quot:
             s.token = tok_str;
-            s.a.value = get_string(tip);
+            s.a.value = get_string(tip); //クオートは文字列を示すので、文字列を取得する
             return s;
         case ca_digit:
             s.token = tok_num;
