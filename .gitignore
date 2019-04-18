@@ -1,2 +1,3 @@
-dusk.xcodeproj
-dusk/*.o
+*.o
+makedot.sh
+dusk
