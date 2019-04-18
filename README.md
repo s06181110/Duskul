@@ -3,6 +3,13 @@
 ## Gitの使い方
 
 ``` bash
+# 0.初期設定 (これは最初だけやるやつ)
+# main.cがあるフォルダに移動する
+rm *
+git init
+git remote add origin https://github.com/s06181110/project_training.git
+git pull origin master
+
 # 1.他の人の変更を反映する
  # 非推奨
 git pull 
