@@ -76,7 +76,7 @@ item fgetItem(TIN *tip, bool current_only) {
             s.token = tok_num;
             s.a.value = getnumber(ch, tip);
             return s;
-        case ca_alpha: return get_identifier(ch, current_only, tip);
+        case ca_alpha: return get_identifier(ch, current_only, tip); // アルファベットの場合
         default:
             break;
     }
