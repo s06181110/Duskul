@@ -16,7 +16,7 @@ void symInitialize(void) {
     );
 }
 
-symset_t symsetCreate(token_t initset[])
+symset_t symsetCreate(token_t initset[]) // システムを作る
 {
     int i, elm;
     static symset_t symset_init = { { 0 } };
