@@ -33,21 +33,31 @@ git add .
 git commit -m "変更内容(英語推奨)"
 git push origin ブランチ名
 
-# Git hubのサイトでプルリクエストを作成
-
-# 5.checkoutでmasterブランチに戻る
+# 5.Git hubのサイトでプルリクエストを作成
 
 # 6.他の人の変更をmasterブランチに反映する
 git pull origin master
 
-# 7.作業ブランチに入る
-git checkout ブランチ名 
-
-# 自分が作ったブランチにいることを確認してから
-# 8.masterの内容を自分のブランチに反映する
-git merge master
-
-#---- 作業する ----#
-
-# あとは 4 ~ 8の繰り返し
+# あとは 4 ~ 6の繰り返し
 ```
+
+# 知りたい人用にメモ
+```bash
+# 自分が変更したファイルを確認する
+git status
+
+# 変更した内容をみる
+git diff
+
+# みんなの変更履歴をみる
+git log
+
+# １つ前のバージョンに戻す(変更内容も全部取り消すから注意)
+# HEAD^ をlogのIDにするとそこまで戻れる
+git reset --hard HEAD^
+
+# コミットの取り消し(変更内容は残る)
+git reset HEAD
+
+
+
