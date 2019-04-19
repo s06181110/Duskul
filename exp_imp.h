@@ -13,9 +13,9 @@
 struct _expnode {
     token_t  kind;      // tok_id:variable, tok_num:int, tok_str: string-literal
     token_t  prefix;    // 0, sym_plus, sym_minus, sym_not
-    union {
-        long    intvalue;   // if kind == tok_num, or tok_str
-        varinfo varinf;     // if kind == tok_id
+    union {             //型longとしても構造体varinfoとしても使える。
+        long    intvalue;   // if kind == tok_num, or tok_str  long型の整数として
+        varinfo varinf;     // if kind == tok_id  varinfoの構造体として
     } v;
 };
 
