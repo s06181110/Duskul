@@ -18,18 +18,18 @@ static const char * const reserved[] = {
 // Note that the order of strings must be the same as the order of
 // the enumerated symbols; sym_and ... sym_while.
 
-static idtable *resv_table;
-static idtable *global_table;
+static idtable *resv_table; // 予約語のためのテーブル
+static idtable *global_table; 
 
-const char *reservedWord(int sym) {
+const char *reservedWord(int sym) { // reserved配列から予約語の文字列を取って来る
     assert(sym >= reserved_word_0 && sym < all_normal_symbols);
-    return reserved[sym - reserved_word_0];
+    return reserved[sym - reserved_word_0]; // tokenからオフセットを取った値
 }
 
-void idtablesInitialize(void)
+void idtablesInitialize(void) // idtableの初期化
 {
-    int cap = 2 * sizeof(reserved) / sizeof(const char *);
-    resv_table = idtableCreate(cap, false);
+    int cap = 2 * sizeof(reserved) / sizeof(const char *); // 何かメモリを確保している
+    resv_table = idtableCreate(cap, false); // 予約語のテーブルを作成
     int sym = reserved_word_0;
     for (int x = 0; reserved[x] != NULL; x++) {
         struct string_info strp = makeStringInfo(reserved[x], true);
@@ -37,10 +37,10 @@ void idtablesInitialize(void)
         rec->kind = id_resvd;
         rec->order = sym++;
     }
-    global_table = idtableCreate(GLOBAL_ID_MAX, true);
+	global_table = idtableCreate(GLOBAL_ID_MAX, true); // グローバル?のテーブルを作成
 }
 
-void idtablesFree(void)
+void idtablesFree(void) // メモリの解放
 {
     idtableFree(resv_table);
     idtableFree(global_table);

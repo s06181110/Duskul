@@ -7,9 +7,9 @@
 #define STRINGMAX   1024
 
 #define BL  ca_blank
-#define SY  (ca_sym | ca_instr)
-#define DG  (ca_digit | ca_instr)
-#define AL  (ca_alpha | ca_instr)
+#define SY  (ca_sym | ca_instr) // 0x12
+#define DG  (ca_digit | ca_instr) // 0x15
+#define AL  (ca_alpha | ca_instr) // 0x16
 
 static unsigned char chTable[256] = {
     0,0,0,0, 0,0,0,0, 0,BL,BL,0, 0,BL,0,0,  // NL & CR
