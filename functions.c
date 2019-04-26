@@ -81,7 +81,7 @@ static int func_header(bool isfunc, bool withbody)
     if (t.token != sym_lpar)
         abortMessageWithToken("no left paren", &t);
     resetLocalList();
-    blockNestPush(); // pop is called in funcDefine() or funcDeclare()
+    blockNestPush(); // pop is called in funcDefine() or funcDeclare()   popはfuncDefine（）またはfuncDeclare（）で呼び出されます。
     int prms = parameter_list();
     if (hasproto) {
         if (finf->params != prms) abortMessageWithToken("wrong proto", &s);
@@ -89,8 +89,8 @@ static int func_header(bool isfunc, bool withbody)
     return funcindex;
 }
 
-/// Definition of a subroutine.
-/// This is called after a token of 'func' or 'proc' is read.
+/// Definition of a subroutine.  サブルーチンの定義
+/// This is called after a token of 'func' or 'proc' is read.  これは、 'func'または 'proc'のトークンが読み取られた後に呼び出されます。
 static void funcDefine(bool isfunc)
 {
     int fidx = func_header(isfunc, true); // blockNestPush() is called
@@ -106,7 +106,7 @@ static void funcDefine(bool isfunc)
     (void)getItem();
 }
 
-/// Forward declaration: This is called after a token of 'declare' is read.
+/// Forward declaration: This is called after a token of 'declare' is read.  前方宣言：これは 'declare'のトークンが読み込まれた後に呼び出されます。
 static void funcDeclare(void)
 {
     item s = getItem();
@@ -120,7 +120,7 @@ static void funcDeclare(void)
     blockNestPop();
 }
 
-/// Parse the top level definitions of subroutines and vars.
+/// Parse the top level definitions of subroutines and vars.  サブルーチンと変数のトップレベルの定義を解析します。
 int parseProgram(void)
 {
     int vars = 0;
