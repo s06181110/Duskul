@@ -13,7 +13,7 @@ static void abortMessage_string(const char *msg, const char *str)
 {
     //エラーメッセージを出力した後、エラー箇所などを出力したければ出力
     fprintf(stderr, "ERROR: %s", getErrorMessage(msg));
-    if (str)　　
+    if (str)
         fprintf(stderr, " %s", str);
     fputc('\n', stderr);
     if (stdtxin) {
