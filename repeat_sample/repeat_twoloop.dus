@@ -1,0 +1,18 @@
+// 二重ループできるかどうか
+proc main()
+   var n = 0
+
+   repeat
+       print(n)
+       n = n + 1  //nを1ずつ増やす
+
+       repeat   // 二重ループ
+           var i = 0
+           print(i)
+           i = i + 1
+
+       until i > 2  //iが2より大きかったら実行終了
+
+  until n > 5  //nが5より大きかったら実行終了
+
+end
