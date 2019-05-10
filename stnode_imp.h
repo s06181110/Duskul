@@ -44,6 +44,12 @@ struct _repeatnode {
     struct _stnode *body;
 }
 
+struct _untilnode {
+    struct _stnode _padding;
+    expnode        *expr;
+    struct _stnode *body;    
+}
+
 struct _fornode {               // for-statement
     struct _stnode _padding;    // caution!
     unsigned char  global;      // var is global ?
