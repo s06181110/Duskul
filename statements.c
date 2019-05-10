@@ -156,6 +156,8 @@ stnode *fetchStatement(item ahead)
             return whileStatement();
         case sym_for:
             return forStatement();
+        case sym_repeat:
+            return repeatStatement();
         default:
             break; // error
     }
