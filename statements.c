@@ -78,6 +78,23 @@ static stnode *whileStatement(void)
     return stp;
 }
 
+static stnode *repeatStatement(void)
+{
+    stnode *stp =newNode(node_repeat);
+    repeatnode *rep =(repeatnode *)stp;
+    rep->expr = expression();
+    item s = getItem();
+    if(s.token != sym_until)
+        abortMessageWithToken("no until", &s);
+    currentBreakNest++;
+    blockNestPush();
+    rep->body =codeblock(end_set, false);
+    blockNestPop();
+    currentBreakNest--;
+    (void)getItem();
+    return stp;
+}
+     
 static stnode *callStatement(void)
 {
     item pr = getItem();
