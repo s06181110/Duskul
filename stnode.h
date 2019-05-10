@@ -8,7 +8,8 @@ typedef enum {
 } nodetype;
 
 typedef struct _stnode {
-    struct _stnode *next;
+    struct _stnode *next;  //正式名称、自分を指すポインタ next→next→next...
+                            //全部をstnodeとはできない。
     unsigned char  kind;    // nodetype
     unsigned short count;   // the number of args / vars
 } stnode;
@@ -16,7 +17,7 @@ typedef struct _stnode {
 struct _funcinfo;
 typedef struct _funcinfo    funcinfo;
 struct _assign;
-typedef struct _assign      assignnode;
+typedef struct _assign      assignnode;  //代入
 struct _ifnode;
 typedef struct _ifnode      ifnode;
 struct _whilenode;
