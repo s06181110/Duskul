@@ -12,7 +12,7 @@
 static const char * const reserved[] = {
     "and", "break", "call", "declare", "do", "else", "elsif", "end",
     "for", "func", "if", "input", "not", "or", "print", "println",
-    "proc", "return", "step", "then", "to", "var", "while", "repeat", "until"
+    "proc", "return", "step", "then", "to", "var", "while", "repeat", "until",
     NULL
 };
 // Note that the order of strings must be the same as the order of
