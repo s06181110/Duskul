@@ -15,6 +15,10 @@ stnode *newNode(nodetype kind)
             total = sizeof(assignnode); break;
         case node_while:
             total = sizeof(whilenode); break;
+        case node_repeat:
+            total = sizeof(repeatnode); break;
+        case node_until:
+            total = sizeof(untilnode); break;
         case node_for:
             total = sizeof(fornode); break;
         case node_break:

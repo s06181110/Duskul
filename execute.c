@@ -54,9 +54,21 @@ static ex_condition execWhile(const whilenode *whp)
 {
     ex_condition r = ex_normal;
     do {
-        evaluate(whp->expr);
-        if (stack[sp++] == 0) break;
-        r = execStatements(whp->body);
+        evaluate(whp->expr);  //whp=whileに関するポインタ、expr=構文岐
+        if (stack[sp++] == 0) break;  //0=偽
+        r = execStatements(whp->body);  //body=while文の中の文の塊
+    }while (r == ex_normal);
+    return (r == ex_return) ? ex_return : ex_normal;
+}
+
+//repeat用
+static ex_condition execRepeat(const repeatnode *rep)
+{
+    ex_condition r = ex_normal;
+    do {
+        evaluate(rep->expr);
+        if (stack[sp++] == 1) break;  //条件が真ならbreak
+        r = execStatements(rep->body);
     }while (r == ex_normal);
     return (r == ex_return) ? ex_return : ex_normal;
 }
@@ -114,6 +126,12 @@ static ex_condition execStatements(const stnode *stptr)
                 r = execWhile((const whilenode *)stp);
                 if (r != ex_normal) return r;
                 break;
+            //repeat用
+            case node_repeat:
+                r = execRepeat((const repeatnode *)stp);
+                if (r != ex_normal) return r;
+                break;
+
             case node_for:
                 r = execFor((const fornode *)stp);
                 if (r != ex_normal) return r;
