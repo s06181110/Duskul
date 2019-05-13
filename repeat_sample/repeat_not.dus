@@ -1,11 +1,12 @@
 //条件なし
 proc main()
-	var n = 0
+	var n
+	n = 0
 
 	repeat
 		print(n)
 		n = n + 1  //nを1ずつ増やす
-	
+
 	until   //条件なし
 
 end

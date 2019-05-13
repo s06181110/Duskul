@@ -1,6 +1,7 @@
 //break文
 proc main()
-   var n = 0
+	var n
+	n = 0
 
 	repeat
 		print(n)

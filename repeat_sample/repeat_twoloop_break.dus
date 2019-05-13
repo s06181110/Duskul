@@ -1,13 +1,13 @@
 // 二重ループ中にbreakしたら
 proc main()
-	var n = 0
+	var n, i
+	n = 0
 
 	repeat
 		print(n)
 		n = n + 1  //nを1ずつ増やす
-
+		i = 0
 		repeat   // 二重ループ
-			var i = 0
 			print(i)
 			i = i + 1
 			if i == 2 then break  //iが2ならbreak
