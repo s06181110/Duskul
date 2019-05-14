@@ -19,8 +19,8 @@ void statInitialize(void)
 {
     // C99 style literal
     stat_set = symsetCreate((token_t[]){
-        tok_id, sym_call, sym_if, sym_while, sym_for, sym_print,
-        sym_println, sym_input, tok_EOD });
+        tok_id, sym_call, sym_if, sym_while, sym_for, sym_repeat, sym_until,
+		sym_print, sym_println, sym_input, tok_EOD });
     end_set = symsetCreate((token_t[]){ sym_end, tok_EOD });
     rtn_set = symsetCreate((token_t[]){ sym_break, sym_return, tok_EOD });
     afterthen_set = symsetCreate((token_t[]){ sym_else, sym_elsif, tok_EOD });
