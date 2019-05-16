@@ -66,7 +66,7 @@ static ex_condition execRepeat(const repeatnode *rep)
 {
     ex_condition r = ex_normal;
     do {
-        evaluate(rep->expr);
+//        evaluate(rep->expr);
         if (stack[sp++] == 1) break;  //条件が真ならbreak
         r = execStatements(rep->body);
     }while (r == ex_normal);
