@@ -57,6 +57,15 @@ stnode *returnStatement(symset_t terminator)
     return statmp;
 }
 
+stnode *untilStatement()
+{
+    expnode *termp = expression();
+    stnode *statmp = newNode(node_until);
+    untilnode *utlp = (untilnode *)statmp;
+    utlp->expr = termp;
+    return statmp;
+}
+
 stnode *inputStatement(void)
 {
     varinfo buffer[PARAM_MAX];

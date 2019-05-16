@@ -40,14 +40,12 @@ struct _whilenode {             // while-statement
 
 struct _repeatnode {
     struct _stnode _padding;
-    expnode        *expr;
     struct _stnode *body;
 };
 
 struct _untilnode {
     struct _stnode _padding;
     expnode        *expr;
-    struct _stnode *body;    
 };
 
 struct _fornode {               // for-statement
