@@ -17,7 +17,7 @@ long *stack, *globals;
 int sp;             // stack pointer
 int localbase = 0;  // base pointer (frame pointer)
 
-typedef enum { ex_normal, ex_break, ex_return } ex_condition;
+typedef enum { ex_normal, ex_break, ex_return, ex_until } ex_condition;
 
 // prototypes
 static ex_condition execStatements(const stnode *stptr);
@@ -54,11 +54,26 @@ static ex_condition execWhile(const whilenode *whp)
 {
     ex_condition r = ex_normal;
     do {
-        evaluate(whp->expr);
-        if (stack[sp++] == 0) break;
-        r = execStatements(whp->body);
+        evaluate(whp->expr);  //whp=whileに関するポインタ、expr=構文岐
+        if (stack[sp++] == 0) break;  //0=偽
+        r = execStatements(whp->body);  //body=while文の中の文の塊
     }while (r == ex_normal);
     return (r == ex_return) ? ex_return : ex_normal;
+}
+
+//repeat用
+static ex_condition execRepeat(const repeatnode *rep)
+{
+    ex_condition r = ex_normal;
+    do {
+        r = execStatements(rep->body);
+        if (stack[sp++] != 0) break;
+    } while (r == ex_until);
+    return (r == ex_return) ? ex_return : ex_normal;
+}
+
+static void execUntil(const untilnode *utl){
+    evaluate(utl->expr);
 }
 
 static ex_condition execFor(const fornode *frp)
@@ -114,6 +129,14 @@ static ex_condition execStatements(const stnode *stptr)
                 r = execWhile((const whilenode *)stp);
                 if (r != ex_normal) return r;
                 break;
+            //repeat用
+            case node_repeat:
+                r = execRepeat((const repeatnode *)stp);
+                if (r != ex_normal) return r;
+                break;
+            case node_until:
+                execUntil((const untilnode *)stp);
+                return ex_until;
             case node_for:
                 r = execFor((const fornode *)stp);
                 if (r != ex_normal) return r;

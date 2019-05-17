@@ -1,0 +1,12 @@
+//正常終了
+proc main()
+	var n
+	n = 0
+
+	repeat
+		print(n)
+		println()
+		n = n + 1  //nを1ずつ増やす
+	until n > 5  //nが5より大きかったら実行終了
+
+end

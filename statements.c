@@ -13,16 +13,17 @@ int currentBreakNest = 0;
 bool valueIsReturned = false;
 symset_t end_set;
 
-static symset_t afterthen_set, stat_set, rtn_set;
+static symset_t afterthen_set, stat_set, rtn_set, utl_set;
 
 void statInitialize(void)
 {
     // C99 style literal
     stat_set = symsetCreate((token_t[]){
-        tok_id, sym_call, sym_if, sym_while, sym_for, sym_print,
-        sym_println, sym_input, tok_EOD });
+        tok_id, sym_call, sym_if, sym_while, sym_for, sym_repeat,
+        sym_print, sym_println, sym_input, tok_EOD });
     end_set = symsetCreate((token_t[]){ sym_end, tok_EOD });
     rtn_set = symsetCreate((token_t[]){ sym_break, sym_return, tok_EOD });
+    utl_set = symsetCreate((token_t[]){ sym_until, tok_EOD });
     afterthen_set = symsetCreate((token_t[]){ sym_else, sym_elsif, tok_EOD });
     symsetUnion(&afterthen_set, end_set);
 }
@@ -78,6 +79,18 @@ static stnode *whileStatement(void)
     return stp;
 }
 
+static stnode *repeatStatement(void)
+{
+    stnode *stp =newNode(node_repeat);
+    repeatnode *rep =(repeatnode *)stp;
+    currentBreakNest++;
+    blockNestPush();
+    rep->body =codeblock(utl_set, false);
+    blockNestPop();
+    currentBreakNest--;
+    return stp;
+}
+     
 static stnode *callStatement(void)
 {
     item pr = getItem();
@@ -139,6 +152,8 @@ stnode *fetchStatement(item ahead)
             return whileStatement();
         case sym_for:
             return forStatement();
+        case sym_repeat:
+            return repeatStatement();
         default:
             break; // error
     }
@@ -202,6 +217,11 @@ stnode *codeblock(symset_t termset, bool rtnflag)
         }
         *statmp = nodp;
         s = getItem();
+    }else if (s.token == sym_until){
+		// repeatはuntilを読んだら終了のため、rootを返す（ゴリ押しかも）
+        nodp = untilStatement(termset); // ここでuntilの後ろに続く式を解析
+        *statmp = nodp;
+        return root;
     }
     if (!symsetHas(termset, s.token)) {
         const char *msg = symsetHas(termset, sym_end)
