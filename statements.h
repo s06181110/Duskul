@@ -36,6 +36,7 @@ stnode *codeblock(symset_t termset, bool rtnflag);
 /* simplestat.c */
 stnode *assignStatement(item ahead, symset_t terminator);
 stnode *returnStatement(symset_t terminator);
+stnode *untilStatement(symset_t terminator);
 stnode *inputStatement(void);
 stnode *forStatement(void);
 

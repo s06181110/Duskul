@@ -3,7 +3,7 @@
 #define __ABORT_H__
 
 struct _item;
-
+//各関数の宣言を行うことでコンパイラに関数の情報を教える
 void abortMessage(const char *msg);
 void abortMessageWithToken(const char *msg, const struct _item *s);
 void abortMessageWithString(const char *msg, const char *str);

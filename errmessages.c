@@ -2,7 +2,7 @@
 /* Duskul version 1.0.0,  2019.03.20 */
 #include <string.h>
 
-static const struct { const char *tag, *localized;
+static const struct { const char *tag, *localized;  //tagには内容、localizedにはエラーメッセージが格納
 } table[] = {
     { "no source",      "ソースプログラムを指定して下さい" },
     { "unexp EOF",      "予期しないEOF" },
@@ -51,7 +51,8 @@ static const struct { const char *tag, *localized;
 const char *getErrorMessage(const char *key)
 {
     for (int i = 0; table[i].tag; i++) {
-        if (strcmp(key, table[i].tag) == 0)
+        if (strcmp(key, table[i].tag) == 0)  //strcmp=引数が一致すれば0を返す
+                                             //つまり、keyとエラー内容が一致すればメッセージを返す
             return table[i].localized;
     }
     return key;
