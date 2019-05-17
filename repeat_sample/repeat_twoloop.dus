@@ -4,14 +4,23 @@ proc main()
 	n = 0
 
 	repeat
-		print(n)
-		n = n + 1  //nを1ずつ増やす
 		i = 0
 		repeat   // 二重ループ
-			print(i)
 			i = i + 1
+			print(i)
+			print(" ")
 		until i > 2  //iが2より大きかったら実行終了
-
+		n = n + 1  //nを1ずつ増やす
+		print(": ")
+		println(n)
 	until n > 5  //nが5より大きかったら実行終了
 
 end
+
+//理想出力
+// 1 2 3 : 1
+// 1 2 3 : 2
+// 1 2 3 : 3
+// 1 2 3 : 4
+// 1 2 3 : 5
+// 1 2 3 : 6

@@ -5,6 +5,7 @@ proc main()
 
 	repeat
 		print(n)
+		println()
 		n = n + 1  //nを1ずつ増やす
 	until n > 5  //nが5より大きかったら実行終了
 

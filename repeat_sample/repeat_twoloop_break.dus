@@ -4,14 +4,14 @@ proc main()
 	n = 0
 
 	repeat
-		print(n)
 		n = n + 1  //nを1ずつ増やす
 		i = 0
 		repeat   // 二重ループ
 			print(i)
 			i = i + 1
-			if i == 2 then break  //iが2ならbreak
-		until i > 2  //iが2より大きかったら実行終了
+			if i > 2 then break end
+		until i > 5  //iが5より大きかったら実行終了
+		println(n)
 	until n > 5  //nが5より大きかったら実行終了
 
 end
