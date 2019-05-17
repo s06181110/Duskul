@@ -7,10 +7,10 @@
 #include "strliteral.h"
 #include "abort.h"
 
-static void applyOperator(int opr) // ++sp by this call
+static void applyOperator(int opr) // ++sp by this call  演算子適用？
 {
     long val = 0;
-    long o2 = stack[sp++];
+    long o2 = stack[sp++];  //stackは配列と見なしてよい、++=pop操作
     long o1 = stack[sp];
     switch (opr) {
         case sym_or: val = BOOL((o1 != 0) || (o2 != 0)); break;

@@ -38,6 +38,16 @@ struct _whilenode {             // while-statement
     struct _stnode *body;
 };
 
+struct _repeatnode {
+    struct _stnode _padding;
+    struct _stnode *body;
+};
+
+struct _untilnode {
+    struct _stnode _padding;
+    expnode        *expr;
+};
+
 struct _fornode {               // for-statement
     struct _stnode _padding;    // caution!
     unsigned char  global;      // var is global ?
