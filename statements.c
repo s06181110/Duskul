@@ -13,7 +13,7 @@ int currentBreakNest = 0;
 bool valueIsReturned = false;
 symset_t end_set;
 
-static symset_t afterthen_set, stat_set, rtn_set, utl_set;
+static symset_t afterthen_set, stat_set, rtn_set;
 
 void statInitialize(void)
 {
@@ -21,9 +21,8 @@ void statInitialize(void)
     stat_set = symsetCreate((token_t[]){
         tok_id, sym_call, sym_if, sym_while, sym_for, sym_repeat,
         sym_print, sym_println, sym_input, tok_EOD });
-    end_set = symsetCreate((token_t[]){ sym_end, tok_EOD });
+    end_set = symsetCreate((token_t[]){sym_end, sym_until, tok_EOD});
     rtn_set = symsetCreate((token_t[]){ sym_break, sym_return, tok_EOD });
-    utl_set = symsetCreate((token_t[]){ sym_until, tok_EOD });
     afterthen_set = symsetCreate((token_t[]){ sym_else, sym_elsif, tok_EOD });
     symsetUnion(&afterthen_set, end_set);
 }
@@ -85,7 +84,11 @@ static stnode *repeatStatement(void)
     repeatnode *rep =(repeatnode *)stp;
     currentBreakNest++;
     blockNestPush();
-    rep->body =codeblock(utl_set, false);
+    rep->body = codeblock(end_set, false);
+    item s = getItem();
+    if (s.token != sym_until)
+        abortMessageWithToken("no until", &s);
+    rep->expr = expression();
     blockNestPop();
     currentBreakNest--;
     return stp;
@@ -217,11 +220,6 @@ stnode *codeblock(symset_t termset, bool rtnflag)
         }
         *statmp = nodp;
         s = getItem();
-    }else if (s.token == sym_until){
-		// repeatはuntilを読んだら終了のため、rootを返す（ゴリ押しかも）
-        nodp = untilStatement(termset); // ここでuntilの後ろに続く式を解析
-        *statmp = nodp;
-        return root;
     }
     if (!symsetHas(termset, s.token)) {
         const char *msg = symsetHas(termset, sym_end)
