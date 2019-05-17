@@ -217,8 +217,7 @@ stnode *codeblock(symset_t termset, bool rtnflag)
         }
         *statmp = nodp;
         s = getItem();
-    }
-    if (s.token == sym_until){
+    }else if (s.token == sym_until){
 		// repeatはuntilを読んだら終了のため、rootを返す（ゴリ押しかも）
         nodp = untilStatement(termset); // ここでuntilの後ろに続く式を解析
         *statmp = nodp;
