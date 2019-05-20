@@ -31,6 +31,11 @@ const char *reservedWord(int sym) { // reserved配列から予約語の文字列
     return reserved[sym - reserved_word_0]; // tokenからオフセットを取った値
 }
 
+const char *globalWord(int sym) {
+    assert(sym >= global_word_0 && sym < all_normal_symbols);
+    return global[sym - global_word_0]; // tokenからオフセットを取った値
+}
+
 void idtablesInitialize(void) // idtableの初期化
 {
     int cap = 2 * sizeof(reserved) / sizeof(const char *); // 何かメモリを確保している
