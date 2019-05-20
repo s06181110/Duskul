@@ -19,9 +19,8 @@ static const char * const reserved[] = {
 // the enumerated symbols; sym_and ... sym_while.
 
 static const char *const global[] = {
-    "abs", "max", "min", "random", 
-    NULL
-    };
+    "abs", "max", "min", "random", NULL
+};
 
 static idtable *resv_table; // 予約語のためのテーブル
 static idtable *global_table; //組み込み関数のためのテーブル
