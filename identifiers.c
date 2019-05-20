@@ -23,7 +23,7 @@ static const char *const builtIn[] = {
 };
 
 static idtable *resv_table; // 予約語のためのテーブル
-static idtable *builtIn_table; //組み込み関数のためのテーブル
+static idtable *global_table; //グローバル変数のためのテーブル
 
 const char *reservedWord(int sym) { // reserved配列から予約語の文字列を取って来る
     assert(sym >= reserved_word_0 && sym < all_normal_symbols);
