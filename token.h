@@ -25,6 +25,10 @@ enum token {
     sym_or, sym_print, sym_println, sym_proc, sym_return,
     sym_step, sym_then, sym_to, sym_var, sym_while, sym_repeat, sym_until,
     all_normal_symbols,
+    /* the followings are global(function) word */
+    global_word_0,
+    sym_abs = global_word_0,
+    sym_max, sym_min, sym_random,
     /* ---- Special Tokens ---- */
     tok_ILL = all_normal_symbols,
     tok_EOD,

@@ -4,7 +4,7 @@
 
 typedef enum {
     node_assign, node_call, node_print, node_input,
-    node_break, node_return, node_if, node_while, node_for, node_repeat, node_until,
+    node_break, node_return, node_if, node_while, node_for, node_repeat,
 } nodetype;
 
 typedef struct _stnode {
@@ -26,8 +26,6 @@ struct _fornode;
 typedef struct _fornode     fornode;
 struct _repeatnode;
 typedef struct _repeatnode  repeatnode;
-struct _untilnode;
-typedef struct _untilnode   untilnode;
 struct _varinfo;
 typedef struct _varinfo     varinfo;
 struct _argnode;
