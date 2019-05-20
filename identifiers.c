@@ -24,7 +24,7 @@ static const char *const global[] = {
     };
 
 static idtable *resv_table; // 予約語のためのテーブル
-static idtable *global_table; 
+static idtable *global_table; //組み込み関数のためのテーブル
 
 const char *reservedWord(int sym) { // reserved配列から予約語の文字列を取って来る
     assert(sym >= reserved_word_0 && sym < all_normal_symbols);
@@ -43,11 +43,12 @@ void idtablesInitialize(void) // idtableの初期化
         rec->order = sym++;
     }
 	global_table = idtableCreate(GLOBAL_ID_MAX, true); // グローバル?のテーブルを作成
+	sym = global_word_0;
     for (int x = 0; global[x] != NULL; x++) {
         struct string_info strp = makeStringInfo(global[x], true);
         idRecord *rec = idtableAdd(global_table, &strp);
         rec->kind = id_global;
-        rec->order = x;
+        rec->order = sym++;
     }
 }
 
