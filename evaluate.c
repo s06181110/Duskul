@@ -6,6 +6,7 @@
 #include "stnode_imp.h"
 #include "strliteral.h"
 #include "abort.h"
+#include <stdlib.h>
 
 static void applyOperator(int opr) // ++sp by this call  演算子適用？
 {
@@ -115,13 +116,9 @@ void execInput(const argnode *agp, int count)
         varinfo vinfo = agp->p.vlist[i];
         int idx = vinfo.offset;
         long *target = vinfo.global ? &globals[idx] : &stack[localbase - idx];
-        for ( ; ; ) {
-            int n = fscanf(stdin, "%ld", target);
-            if (n == EOF)
-                abortMessageWithString("input eof", "input");
-            if (n >= 1)
-                break;
-            (void)getchar(); // skip a non-numeral char
-        }
+        char str[50];
+        char *endptr;
+        scanf("%s", str);
+        *target = strtol(str, &endptr, 0);
     }
 }
