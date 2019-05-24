@@ -55,9 +55,17 @@ long getnumber(int ch, TIN *tip)
 {
     long val = (long)(ch - '0');
     int d = nextch(tip);
-    while (chAttribute(d) == ca_digit) {
-        val = val * 10 + (long)(d - '0');
+    if (ch == '0' && d == 'x'){
         d = nextch(tip);
+        while (chAttribute(d) == ca_digit){
+            val = val * 16 + (long)(d - '0');
+            d = nextch(tip);
+        }
+    }else{
+        while (chAttribute(d) == ca_digit) {
+            val = val * 10 + (long)(d - '0');
+            d = nextch(tip);
+        }
     }
     if (d != EOF) undoch(d, tip);
     return val;
