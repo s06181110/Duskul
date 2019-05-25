@@ -51,8 +51,8 @@ void idtablesInitialize(void) // idtableの初期化
     for (int x = 0; builtIn[x] != NULL; x++) {
         struct string_info strp = makeStringInfo(builtIn[x], true);
         idRecord *rec = idtableAdd(global_table, &strp);
-        rec->kind = id_builtIn;
-        rec->order = sym++;
+        rec->kind = id_func;
+        rec->order = x;
     }
 }
 
