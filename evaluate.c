@@ -70,10 +70,43 @@ void evaluate(const expnode *expptr) // --sp by this call
                 evaluate(agp->args[i]);
             subroutine(agp->index); // --sp by subroutine()
             break;
-    }
-    if (expptr->prefix == sym_minus) stack[sp] *= -1;
-    else if (expptr->prefix == sym_not)
-        stack[sp] = BOOL(stack[sp] == 0);
+        case sym_abs:
+            agp = (const argExpnode *)expptr;
+            if (sp - agp->count < STACK_LOW)
+                abortMessage("stack overflow");
+            for (int i = 0; i < agp->count; i++)
+                evaluate(agp->args[i]);
+
+            break;
+        case sym_max:
+            agp = (const argExpnode *)expptr;
+            if (sp - agp->count < STACK_LOW)
+                abortMessage("stack overflow");
+            for (int i = 0; i < agp->count; i++)
+                evaluate(agp->args[i]);
+
+            break;
+        case sym_min:
+            agp = (const argExpnode *)expptr;
+            if (sp - agp->count < STACK_LOW)
+                abortMessage("stack overflow");
+            for (int i = 0; i < agp->count; i++)
+                evaluate(agp->args[i]);
+
+            break;
+        case sym_random:
+            agp = (const argExpnode *)expptr;
+            if (sp - agp->count < STACK_LOW)
+                abortMessage("stack overflow");
+            for (int i = 0; i < agp->count; i++)
+                evaluate(agp->args[i]);
+
+            break;
+        }
+        if (expptr->prefix == sym_minus)
+            stack[sp] *= -1;
+        else if (expptr->prefix == sym_not)
+            stack[sp] = BOOL(stack[sp] == 0);
 }
 
 void execPrint(const argnode *agp, int count)

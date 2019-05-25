@@ -8,7 +8,7 @@
 #include "token.h"
 
 typedef enum {
-    id_resvd, id_builtIn,      // reserved word
+    id_resvd,      // reserved word
     id_static_v, id_local_v, id_param, id_func, id_proc,
     id_undefined, id_new
     // id_new is only used to temporarily keep a table item.
