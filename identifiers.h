@@ -31,6 +31,7 @@ extern int maxLocalOffset;
 
 const char *reservedWord(int sym);
 
+void addBuiltIn(idRecord *idp, int params);
 void idtablesInitialize(void);
 void idtablesFree(void);
 struct string_info makeStringInfo(const char *str, bool newid);

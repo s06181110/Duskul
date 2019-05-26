@@ -17,6 +17,10 @@ enum token {
     combined_symbol_0,
     sym_leq = combined_symbol_0 /* <= */,
     sym_geq /* >= */, sym_equal /* == */, sym_neq /* <> */,
+    /* the followings are built-in function word */
+    builtIn_word_0,
+    sym_abs = builtIn_word_0,
+    sym_max, sym_min, sym_random,
     /* ---- the followings are reserved words ---- */
     reserved_word_0,
     sym_and = reserved_word_0,

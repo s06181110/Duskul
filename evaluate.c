@@ -1,4 +1,7 @@
 /* Duskul version 0.1.5,  2018.08.12,   Takeshi Ogihara, (C) 2018 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "evaluate.h"
 #include "expression.h"
 #include "exp_imp.h"
@@ -31,6 +34,15 @@ static void applyOperator(int opr) // ++sp by this call  演算子適用？
         case sym_lt:    val = BOOL(o1 < o2); break;
         case sym_geq:   val = BOOL(o1 >= o2); break;
         case sym_leq:   val = BOOL(o1 <= o2); break;
+        case sym_abs:   val = abs((int)o2); --sp; break;
+        case sym_max:   val = o1 > o2 ? o1 : o2; break;
+        case sym_min:   val = o1 < o2 ? o1 : o2; break;
+        case sym_random:
+            --sp;
+            if(o2 <= 1){ val = 0; break; }
+            srand((int)time(NULL));
+            val = rand() % (int)o2;
+            break;
         default:
             assert(false); break;
     }
@@ -71,10 +83,22 @@ void evaluate(const expnode *expptr) // --sp by this call
                 evaluate(agp->args[i]);
             subroutine(agp->index); // --sp by subroutine()
             break;
-    }
-    if (expptr->prefix == sym_minus) stack[sp] *= -1;
-    else if (expptr->prefix == sym_not)
-        stack[sp] = BOOL(stack[sp] == 0);
+        case sym_abs:
+        case sym_max:
+        case sym_min:
+        case sym_random:
+            agp = (const argExpnode *)expptr;
+            if (sp - agp->count < STACK_LOW)
+                abortMessage("stack overflow");
+            for (int i = 0; i < agp->count; i++)
+                evaluate(agp->args[i]);
+            applyOperator(expptr->kind);
+            break;
+        }
+        if (expptr->prefix == sym_minus)
+            stack[sp] *= -1;
+        else if (expptr->prefix == sym_not)
+            stack[sp] = BOOL(stack[sp] == 0);
 }
 
 void execPrint(const argnode *agp, int count)

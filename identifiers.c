@@ -18,12 +18,21 @@ static const char * const reserved[] = {
 // Note that the order of strings must be the same as the order of
 // the enumerated symbols; sym_and ... sym_while.
 
+static const char *const builtIn[] = {
+    "abs", "max", "min", "random", NULL
+};
+
 static idtable *resv_table; // 予約語のためのテーブル
-static idtable *global_table; 
+static idtable *global_table; //グローバル変数のためのテーブル
 
 const char *reservedWord(int sym) { // reserved配列から予約語の文字列を取って来る
     assert(sym >= reserved_word_0 && sym < all_normal_symbols);
     return reserved[sym - reserved_word_0]; // tokenからオフセットを取った値
+}
+
+const char *builtInWord(int sym) {
+    assert(sym >= builtIn_word_0 && sym < all_normal_symbols);
+    return builtIn[sym - builtIn_word_0]; // tokenからオフセットを取った値
 }
 
 void idtablesInitialize(void) // idtableの初期化
@@ -38,6 +47,16 @@ void idtablesInitialize(void) // idtableの初期化
         rec->order = sym++;
     }
 	global_table = idtableCreate(GLOBAL_ID_MAX, true); // グローバル?のテーブルを作成
+	sym = builtIn_word_0;
+    for (int x = 0; builtIn[x] != NULL; x++) {
+        struct string_info strp = makeStringInfo(builtIn[x], true);
+        idRecord *rec = idtableAdd(global_table, &strp);
+        rec->kind = id_func;
+        rec->order = x;
+        int params = 1;
+        if (!strcmp(builtIn[x], "min") || !strcmp(builtIn[x], "max")) params = 2;
+        addBuiltIn(rec, params);
+    }
 }
 
 void idtablesFree(void) // メモリの解放
