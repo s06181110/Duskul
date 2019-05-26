@@ -1,0 +1,8 @@
+proc main()
+  var num
+  input(num)
+  for var i = 1 to num do
+    print(" ",i)
+  end
+  println()
+end
