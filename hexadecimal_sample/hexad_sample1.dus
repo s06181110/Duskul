@@ -1,0 +1,7 @@
+proc main()
+  var num,hexanum
+  num=11
+  hexanum=0x11
+  println(num)
+  println(hexanum)
+end
