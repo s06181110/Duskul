@@ -53,6 +53,9 @@ void idtablesInitialize(void) // idtableの初期化
         idRecord *rec = idtableAdd(global_table, &strp);
         rec->kind = id_func;
         rec->order = x;
+        int params = 1;
+        if (!strcmp(builtIn[x], "min") || !strcmp(builtIn[x], "max")) params = 2;
+        addBuiltIn(rec, params);
     }
 }
 

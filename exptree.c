@@ -1,4 +1,5 @@
 /* Duskul version 0.1.1,  2018.03.13,   Takeshi Ogihara, (C) 2018 */
+#include <string.h>
 #include <stdlib.h>
 #include "token.h"
 #include "expression.h"
@@ -27,16 +28,27 @@ expnode *newOprnode(int kind, expnode *o1, expnode *o2)
     return (expnode *)xp;
 }
 
-argExpnode *newArgnode(int prefix, int funcindex, int argnum)
+argExpnode *newArgnode(int prefix, int funcindex, int argnum,const char *ident)
 {
     size_t sz = sizeof(argExpnode);
     if (argnum > 1)
         sz += sizeof(expnode *) * (argnum - 1);
     argExpnode *agp = malloc(sz);
-    agp->kind = sym_func;
+    //agp->kind = sym_func;
     agp->prefix = prefix;
     agp->index = funcindex;
     agp->count = argnum;
+    if(!strcmp(ident, "abs")){
+        agp->kind = sym_abs;
+    }else if (!strcmp(ident, "max")){
+        agp->kind = sym_max;
+    }else if (!strcmp(ident, "min")){
+        agp->kind = sym_min;
+    }else if (!strcmp(ident, "random")){
+        agp->kind = sym_random;
+    }else{
+        agp->kind = sym_func;
+    }
     return agp;
 }
 
@@ -74,7 +86,8 @@ expnode *term(void)
     if (s.token == tok_id) { // var or func
         if (s.kind == id_func) {
             int num = functionsTable[s.offset]->params;
-            argExpnode *agp = newArgnode(prefix, s.offset, num);
+            const char *ident = functionsTable[s.offset]->ident;
+            argExpnode *agp = newArgnode(prefix, s.offset, num, ident);
             expressionList(agp->args, num);
             return (expnode *)agp;
         }else if (s.kind == id_proc) {

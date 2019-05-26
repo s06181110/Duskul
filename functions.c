@@ -17,6 +17,16 @@ int currentFuncIndex = 0;
 int numberOfFunctions = 0;
 int numberOfStaticVars = 0;
 
+void addBuiltIn(idRecord *idp, int params){
+    funcinfo *finf = NULL;
+    functionsTable[idp->order] = finf = malloc(sizeof(funcinfo));
+    finf->ident = idp->str;
+    finf->withbody = true;
+    finf->rtntype = true;
+    finf->params = params;
+    numberOfFunctions++;
+}
+
 // 仮引数列: '(' が読まれてから呼び出される。最後の ')' は読む。
 static int parameter_list(void)
 {
