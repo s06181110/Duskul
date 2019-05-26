@@ -11,7 +11,7 @@ typedef struct _argExpnode  argExpnode;
 
 expnode *newExpnode(int prefix, int kind);  //構造体の作成
 expnode *newOprnode(int kind, expnode *o1, expnode *o2);
-argExpnode *newArgnode(int prefix, int funcindex, int argnum);
+argExpnode *newArgnode(int prefix, int funcindex, int argnum,const char *ident);
 expnode *term(void);
 
 #endif /* expnode_h */
