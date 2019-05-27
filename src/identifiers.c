@@ -2,6 +2,7 @@
 /* Duskul version 1.0.1,  2019.03.23 */
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "identifiers.h"
 #include "idtable.h"
 #include "abort.h"
@@ -57,6 +58,7 @@ void idtablesInitialize(void) // idtableの初期化
         if (!strcmp(builtIn[x], "min") || !strcmp(builtIn[x], "max")) params = 2;
         addBuiltIn(rec, params);
     }
+    srand((int)time(NULL)); // 組み込み関数のランダムのための初期化
 }
 
 void idtablesFree(void) // メモリの解放
