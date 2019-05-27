@@ -1,0 +1,9 @@
+//正しい出力値 3
+
+proc main()
+    var n
+
+    n=max(-5,3)
+    println(n)
+
+end

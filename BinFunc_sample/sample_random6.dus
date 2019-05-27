@@ -1,0 +1,14 @@
+//正しい出力値　0〜9の乱数を3つ合計したもの（値域は0〜27）を3回出力
+
+proc main()
+    var num,out
+    num=100
+
+    for var i = 1 to 3 do
+        out=0
+        out=random(10)+random(10)+random(10)
+        print(" ",out)
+    end
+    println()
+
+end

@@ -1,0 +1,9 @@
+//正しい出力値 1
+
+proc main()
+    var n
+
+    n=max(-99999999999999999,1)
+    println(n)
+
+end

@@ -1,0 +1,13 @@
+//正しい出力値　乱数が50から60のとき出力
+
+proc main()
+    var num,out
+    num=100
+
+    for var i = 1 to 10 do
+        out=random(num)
+        if 50 <= out and out <= 60 then
+          println(out)
+        end
+    end
+end

@@ -1,0 +1,9 @@
+//正しい出力値 -5
+
+proc main()
+    var n
+
+    n=min(1,-99999999999999999)
+    println(n)
+
+end
