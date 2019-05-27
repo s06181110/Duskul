@@ -1,0 +1,11 @@
+//正しい出力値 5
+
+proc main()
+    var n,j
+    n=5
+    j=5
+
+    n=max(n,j)
+    println(n)
+
+end

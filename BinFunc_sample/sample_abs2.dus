@@ -1,0 +1,10 @@
+//正しい出力値 3
+
+proc main()
+    var n
+    n=3
+
+    n=abs(n)
+    println(n)
+
+end

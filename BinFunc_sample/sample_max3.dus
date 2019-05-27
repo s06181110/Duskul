@@ -1,0 +1,11 @@
+//正しい出力値　1999
+
+proc main()
+    var n,j
+    n=999999999999999999999
+    j=1
+
+    n=max(n,j)
+    println(n)
+
+end

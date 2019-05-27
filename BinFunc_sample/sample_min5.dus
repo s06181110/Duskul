@@ -1,0 +1,9 @@
+//正しい出力値　-400
+
+proc main()
+    var n
+
+    n=min(-400,-400)
+    println(n)
+
+end

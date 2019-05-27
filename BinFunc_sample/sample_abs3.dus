@@ -1,0 +1,10 @@
+//正しい出力値 1999
+
+proc main()
+    var n
+    n=-1999
+
+    n=abs(n)
+    println(n)
+
+end

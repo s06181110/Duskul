@@ -1,0 +1,9 @@
+//正しい出力値 20 またはエラー
+
+proc main()
+    var n
+
+    n=abs(abs(-20))
+    println(n)
+
+end

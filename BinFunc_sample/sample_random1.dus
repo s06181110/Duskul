@@ -1,0 +1,11 @@
+//正しい出力値　0から99の乱数を10回出力
+
+proc main()
+    var num,out
+    num=100
+
+    for var i = 1 to 10 do
+        out=random(num)
+        println(out)
+    end
+end
