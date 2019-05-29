@@ -11,9 +11,6 @@
 #define DG  (ca_digit | ca_instr) // 0x15
 #define AL  (ca_alpha | ca_instr) // 0x16
 
-#define upper 0 // 大文字
-#define lower 1 // 小文字
-
 static unsigned char chTable[256] = {
     0,0,0,0, 0,0,0,0, 0,BL,BL,0, 0,BL,0,0,  // NL & CR
     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
