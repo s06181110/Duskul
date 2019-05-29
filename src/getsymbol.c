@@ -11,6 +11,9 @@
 #define DG  (ca_digit | ca_instr) // 0x15
 #define AL  (ca_alpha | ca_instr) // 0x16
 
+#define upper 0 // 大文字
+#define lower 1 // 小文字
+
 static unsigned char chTable[256] = {
     0,0,0,0, 0,0,0,0, 0,BL,BL,0, 0,BL,0,0,  // NL & CR
     0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,
@@ -56,10 +59,17 @@ long getnumber(int ch, TIN *tip)
     long val = (long)(ch - '0');
     int d = nextch(tip);
     if (ch == '0' && d == 'x'){
-        d = nextch(tip);
-        while (chAttribute(d) == ca_digit){
-            val = val * 16 + (long)(d - '0');
+        while (true){
             d = nextch(tip);
+            if(chAttribute(d) == ca_digit){
+                val = val * 16 + (long)(d - '0');
+            }else if('A' <= d && d <= 'F'){ // A ~ F の文字まで許容
+                val = val * 16 + (long)(d - 'A') + 10;
+            }else if('a' <= d && d <= 'f'){ // a ~ f の文字まで許容
+                val = val * 16 + (long)(d - 'a') + 10;
+            }else{
+                break;
+            }
         }
     }else{
         while (chAttribute(d) == ca_digit) {
