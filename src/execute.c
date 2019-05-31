@@ -66,6 +66,7 @@ static ex_condition execRepeat(const repeatnode *rep)
     ex_condition r = ex_normal;
     do {
         r = execStatements(rep->body); // repeatのブロックを見る
+        if(r == ex_break || r == ex_return) break;
         evaluate(rep->expr); // 式の評価をstackに積み上げる
         if (stack[sp++] != 0) break;
     } while (r == ex_normal);
