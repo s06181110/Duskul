@@ -1,8 +1,10 @@
 # プロジェクト演習 課題
 
 プロジェクトは学校の課題で作ったものです。
-[Duskul 1.0.2](http://www.cc.kyoto-su.ac.jp/~ogihara/Duskul/)の機能拡張を下記のように行なった。
-利用に関しては、上記のサイトをご確認ください。
+
+[Duskul 1.0.2](http://www.cc.kyoto-su.ac.jp/~ogihara/Duskul/)の機能拡張を下記のように行ないました。
+
+利用に関しては、[サイト](http://www.cc.kyoto-su.ac.jp/~ogihara/Duskul/)をご確認ください。
 
 ## 実装した機能
 * repeat文
